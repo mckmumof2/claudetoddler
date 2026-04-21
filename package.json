@@ -1,0 +1,12 @@
+{
+  "name": "video-portal",
+  "version": "1.0.0",
+  "description": "A modern video portal web application",
+  "scripts": {
+    "start": "npx serve . -p 3000",
+    "dev": "npx live-server --port=3000"
+  },
+  "devDependencies": {
+    "serve": "^14.0.0"
+  }
+}
