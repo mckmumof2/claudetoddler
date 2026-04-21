@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VideoPortal — Watch & Discover</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12zm-5-6l-7 4V7z"/></svg>
+      VideoPortal
+    </a>
+    <div class="search-bar">
+      <input id="searchInput" type="text" placeholder="Search videos, channels, topics…" autocomplete="off">
+      <button id="searchBtn" aria-label="Search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+      </button>
+    </div>
+    <div class="nav-actions">
+      <button class="btn btn-outline" onclick="showToast('Sign in coming soon')">Sign In</button>
+      <button class="btn btn-primary" onclick="showToast('Sign up coming soon')">Sign Up</button>
+    </div>
+  </nav>
+
+  <div id="heroWrap"></div>
+
+  <div class="categories" id="categoryChips"></div>
+
+  <main class="main">
+    <h2 class="section-title" id="gridTitle">Latest Videos</h2>
+    <div class="video-grid" id="videoGrid"></div>
+    <div class="load-more-wrap">
+      <button class="btn btn-outline" id="loadMoreBtn" onclick="showToast('All videos loaded')">Load More</button>
+    </div>
+  </main>
+
+  <footer class="footer">
+    &copy; 2026 VideoPortal &mdash; Watch. Learn. Create.
+  </footer>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Handle ?q= param from player search redirect
+    const qs = new URLSearchParams(location.search).get("q");
+    if (qs) {
+      document.getElementById("searchInput").value = qs;
+      searchQuery = qs;
+      document.getElementById("gridTitle").textContent = `Results for "${qs}"`;
+    }
+  </script>
+</body>
+</html>
