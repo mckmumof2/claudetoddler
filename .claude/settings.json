@@ -1,0 +1,8 @@
+{
+  "mcp_servers": {
+    "scrapling": {
+      "command": "bash",
+      "args": ["-c", "source ~/.venv-tools/bin/activate && python3 -m scrapling.mcp"]
+    }
+  }
+}
